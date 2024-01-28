@@ -5,7 +5,14 @@ const UserModel = require('./Models/user')
 
 
 const app = express()
-app.use(cors())
+app.use(cors(
+{
+    origin:["https://employes-livid.vercel.app"],
+    method:["POST","GET","PUT","DELETE"],
+    Credentials:ture
+}
+))
+
 app.use(express.json())
 
 
@@ -13,6 +20,7 @@ const PORT = 5000
 mongoose.connect("mongodb+srv://vijaydb:vijaydb06@cluster0.sp5wy8o.mongodb.net/storedata?retryWrites=true&w=majority")
 
 app.get('/', (req, res) => {
+   
     UserModel.find({})
         .then(users => res.json(users))
         .catch(err => res.json(err))
