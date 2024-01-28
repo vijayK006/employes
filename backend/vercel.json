@@ -1,0 +1,13 @@
+{
+    "versel":2,
+    "build":[
+{"src": "*.js", "use": "@versel/node"}
+    ],
+
+    "routes":[
+        {
+            "src":"/(.*)",
+            "dest":"/"
+        }
+    ]
+}
