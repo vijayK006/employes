@@ -3,24 +3,22 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const UserModel = require('./Models/user')
 
+require('dotenv').config()
 
 const app = express()
-app.use(cors(
-{
-    origin:["https://employes-livid.vercel.app"],
-    method:["POST","GET","PUT","DELETE"],
-    Credentials:ture
-}
-))
+app.use(cors())
 
 app.use(express.json())
 
 
-const PORT = 5000
-mongoose.connect("mongodb+srv://vijaydb:vijaydb06@cluster0.sp5wy8o.mongodb.net/storedata?retryWrites=true&w=majority")
+const PORT = process.env.port || 5000
+mongoose.connect(process.env.MONGODB_URL)
+
+app.listen(PORT, () => {
+    console.log(`Server is Running on ${PORT} post`)
+})
 
 app.get('/', (req, res) => {
-   
     UserModel.find({})
         .then(users => res.json(users))
         .catch(err => res.json(err))
@@ -67,6 +65,3 @@ app.post('/createUser', (req, res) => {
 
 })
 
-app.listen(PORT, () => {
-    console.log(`Server is Running on ${PORT} post`)
-})
