@@ -1,6 +1,6 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import Container from 'react-bootstrap/esm/Container'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import Container from 'react-bootstrap/esm/Container';
 import { Link } from 'react-router-dom';
 
 const View = () => {

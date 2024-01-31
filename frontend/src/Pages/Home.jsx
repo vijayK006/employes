@@ -8,6 +8,7 @@ const Home = () => {
     const [password, setPassword]= useState();
     const [details, setDetails]= useState();
 const navigate = useNavigate();
+
     const Submit=(e)=>{
         e.preventDefault();
         axios.post("http://localhost:5000/createUser", {username, password, details})
@@ -22,7 +23,7 @@ const navigate = useNavigate();
   return (
     <div>
     <Container>
-    <h1>Welcome To Home Page</h1>
+    <h1>Add your Keychain</h1>
 <form className='mt-5 pt-5' onSubmit={Submit}>
 
 <input type='text' className='form-control my-3' placeholder='Enter Your Username'
