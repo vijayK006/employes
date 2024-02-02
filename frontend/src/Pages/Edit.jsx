@@ -12,7 +12,7 @@ const navigate = useNavigate();
 
 
 useEffect(()=>{
-    axios.get('http://localhost:5000/getUser/'+id)
+    axios.get('https://employes-phi.vercel.app/getUser/'+id)
     .then(result=> {
         console.log(result.data)
         setUsername(result.data.username)
@@ -25,7 +25,7 @@ useEffect(()=>{
 
       const Update =(e)=> {
         e.preventDefault();
-        axios.put("http://localhost:5000/updateUser/"+id, {username, password, details})
+        axios.put("https://employes-phi.vercel.app/updateUser/"+id, {username, password, details})
         .then(result => {
          console.log(result.data)
     navigate('/View');

@@ -11,7 +11,7 @@ const navigate = useNavigate();
 
     const Submit=(e)=>{
         e.preventDefault();
-        axios.post("http://localhost:5000/createUser", {username, password, details})
+        axios.post("https://employes-phi.vercel.app/createUser", {username, password, details})
         .then(result => {
           console.log(result.data)
           navigate('/View')

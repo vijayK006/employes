@@ -7,7 +7,7 @@ const View = () => {
     const [users, setUsers] = useState([]);
 
   useEffect(()=>{
-axios.get('http://localhost:5000')
+axios.get('https://employes-phi.vercel.app')
 .then(result=> {
     setUsers(result.data) 
      console.log(result.data);
@@ -16,7 +16,7 @@ axios.get('http://localhost:5000')
   }, [])
 
   const deleteuser=(id)=>{
-axios.delete('http://localhost:5000/deleteUser/'+ id,)
+axios.delete('https://employes-phi.vercel.app/deleteUser/'+ id,)
 .then(result=> {
     console.log(`User ${result.data.username} Record Deleted`)
     window.location.pathname='/View';
